@@ -18,6 +18,13 @@ UN=`uname -a`
 echo "$UN" | grep sunxi64 && LHEADERS=linux-headers-current-sunxi64
 echo "$UN" | grep sunxi64 && OVL=armbian-add-overlay
 
+
+#http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-PC-Plus.html
+echo "$UN" | grep sunxi && LHEADERS=linux-headers-current-sunxi
+echo "$UN" | grep sunxi && OVL=armbian-add-overlay
+
+
+
 #debian, https://github.com/silver-alx/sbc/releases
 echo "$UN" | grep sun50iw6 && LHEADERS=linux-headers-next-sun50iw6
 echo "$UN" | grep sun50iw6 && OVL=orangepi-add-overlay
@@ -29,8 +36,8 @@ echo "$UN" | grep 5.10.76-sun50iw6 && LHEADERS=linux-headers-current-sun50iw6
 cd $SPATH
 
 echo "Installing overlay..."
-cp $SPATH/dts/sun50i-h6-st7796s-landscape.dts /tmp/sun50i-h6-st7796s.dts 
-sudo $OVL /tmp/sun50i-h6-st7796s.dts || die "Error installing overlay"
+cp $SPATH/dts/sun8i-h3-st7796.dts /tmp/sun8i-h3-st7796.dts 
+sudo $OVL /tmp/sun8i-h3-st7796.dts || die "Error installing overlay"
 
 
 echo "Copying xorg.conf rules..."

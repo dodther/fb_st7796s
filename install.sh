@@ -57,7 +57,7 @@ grep -qxF 'fb_st7796s' /etc/initramfs-tools/modules || echo fb_st7796s | sudo te
 sudo update-initramfs -u || die "Error updating initramfs"
 
 echo "Installing overlay..."
-sudo $OVL $SPATH/dts/sun50i-h6-st7796s.dts || die "Error installing overlay"
+sudo $OVL $SPATH/dts/sun8i-h3-st7796.dts || die "Error installing overlay"
 
 sudo systemctl stop KlipperScreen.service
 sudo rm /etc/X11/xorg.conf.d/50-fbturbo.conf
